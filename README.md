@@ -8,7 +8,9 @@ Chronas Community Site
 <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Faumanjoa%2Fchronas-community%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
+
 ## Azure deployment
+
 after you have deployed the resources to azure you need to configure following: 
 * configure web-app github deployment
 * add the two needed environment variables CLOUDINARY_URL, MONGO_URI
