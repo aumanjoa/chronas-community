@@ -48,6 +48,9 @@
         "sites_chronasWebApp_name": {
             "type": "string"
         },
+        "chronasHostName": {
+            "type": "string"
+        },        
         "config_web_name": {
             "defaultValue": "chronasWebApp/web",
             "type": "string"
@@ -329,21 +332,21 @@
             "properties": {
                 "name": "[parameters('sites_chronasWebApp_name')]",
                 "hostNames": [
-                    "chronaswebapp.azurewebsites.net"
+                    "[concat(parameters('chronasHostName'),'.azurewebsites.net')]"
                 ],
                 "enabledHostNames": [
-                    "chronaswebapp.azurewebsites.net",
-                    "chronaswebapp.scm.azurewebsites.net"
+                     "[concat(parameters('chronasHostName'),'.azurewebsites.net')]",
+                     "[concat(parameters('chronasHostName'),'.scm.azurewebsites.net')]"
                 ],
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_chronasWebApp_name'),'chronaswebapp.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_chronasWebApp_name'),[concat(parameters('chronasHostName'),'.azurewebsites.net')])]",
                         "sslState": 0,
                         "thumbprint": null,
                         "ipBasedSslState": 0
                     },
                     {
-                        "name": "[concat(parameters('sites_chronasWebApp_name'),'chronaswebapp.scm.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_chronasWebApp_name'),[concat(parameters('chronasHostName'),'.scm.azurewebsites.net')])]",
                         "sslState": 0,
                         "thumbprint": null,
                         "ipBasedSslState": 0
