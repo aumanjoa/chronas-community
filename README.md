@@ -8,6 +8,13 @@ Chronas Community Site
 <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Faumanjoa%2Fchronas-community%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
+## Azure deployment
+after you have deployed the resources to azure you need to configure following: 
+* configure web-app github deployment
+* add the two needed environment variables CLOUDINARY_URL, MONGO_URI
+	* for the mongodb connection string you need to use this format mongodb://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}, for the created mongodb databse you will find the password here https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials, default username is root 
+
+the github deployment
 
 
 Initially built in two and a half days by the team at [Thinkmill](http://www.thinkmill.com.au) as a demo for  [KeystoneJS](http://keystonejs.com), it was then a showcase for the Sydney Javascript community - until it was forked for the community site of Chronas.
