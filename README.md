@@ -1,8 +1,13 @@
 Chronas Community Site
 =========
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://azuredeploy.net/)
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Faumanjoa%2Fchronas-community%2Fmaster%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Faumanjoa%2Fchronas-community%2Fmaster%2Fazuredeploy.json" target="_blank">
+    <img src="http://armviz.io/visualizebutton.png"/>
+</a>
 
 
 Initially built in two and a half days by the team at [Thinkmill](http://www.thinkmill.com.au) as a demo for  [KeystoneJS](http://keystonejs.com), it was then a showcase for the Sydney Javascript community - until it was forked for the community site of Chronas.
