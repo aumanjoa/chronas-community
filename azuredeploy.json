@@ -6,6 +6,9 @@
             "defaultValue": "chronasmongodb",
             "type": "string"
         },
+        "adminPasswordMongodbServer": {
+        "type": "securestring"
+        },        
         "alertrules_Failure_Anomalies___chronasWebApp_name": {
             "defaultValue": "Failure Anomalies - chronasWebApp",
             "type": "string"
@@ -43,7 +46,7 @@
             "type": "string"
         },
         "sites_chronasWebApp_name": {
-            "defaultValue": "chronasWebApp",
+            "defaultValue": "",
             "type": "string"
         },
         "config_web_name": {
@@ -89,6 +92,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_chronasmongodb_name')]",
                     "adminUsername": "chronasmongo",
+                    "adminPassword": "[parameters('adminPasswordMongodbServer')]",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": false
                     },
