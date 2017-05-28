@@ -18,7 +18,7 @@
             "type": "string"
         },
         "networkInterfaces_chronasmongodb40_name": {
-            "defaultValue": "[concat('chronasmongodb', uniqueString(resourceGroup().id))]",
+            "defaultValue": "chronasmongodb40",
             "type": "string"
         },
         "networkSecurityGroups_chronasmongodb_nsg_name": {
@@ -59,7 +59,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('virtualMachines_chronasmongodb_name')]",
             "apiVersion": "2016-04-30-preview",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "plan": {
                 "name": "3-2",
                 "product": "mongodb",
@@ -121,7 +121,7 @@
             "type": "microsoft.insights/alertrules",
             "name": "[parameters('alertrules_Failure_Anomalies___chronasWebApp_name')]",
             "apiVersion": "2014-04-01",
-            "location": "South Central US",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "name": "[parameters('alertrules_Failure_Anomalies___chronasWebApp_name')]",
@@ -152,7 +152,7 @@
             "kind": "web",
             "name": "[parameters('components_chronasWebApp_name')]",
             "apiVersion": "2014-04-01",
-            "location": "southcentralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "ApplicationId": "[parameters('components_chronasWebApp_name')]"
@@ -163,7 +163,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[parameters('networkInterfaces_chronasmongodb40_name')]",
             "apiVersion": "2017-03-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "ipConfigurations": [
@@ -199,7 +199,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[parameters('networkSecurityGroups_chronasmongodb_nsg_name')]",
             "apiVersion": "2017-03-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "securityRules": [
@@ -237,7 +237,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddresses_chronasmongodb_ip_name')]",
             "apiVersion": "2017-03-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "publicIPAllocationMethod": "Dynamic",
@@ -249,7 +249,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[parameters('virtualNetworks_chronasNewCosmos_vnet_name')]",
             "apiVersion": "2017-03-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "addressSpace": {
@@ -278,7 +278,7 @@
             "kind": "Storage",
             "name": "[parameters('storageAccounts_chronasnewcosmosdiag533_name')]",
             "apiVersion": "2016-01-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "tags": {},
             "scale": null,
             "properties": {},
@@ -293,7 +293,7 @@
             "kind": "Storage",
             "name": "[parameters('storageAccounts_chronasnewcosmosdisks219_name')]",
             "apiVersion": "2016-01-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "tags": {},
             "scale": null,
             "properties": {},
@@ -311,7 +311,7 @@
             "kind": "app",
             "name": "[parameters('serverfarms_ServicePlanf79c4f07_8077_name')]",
             "apiVersion": "2015-08-01",
-            "location": "South Central US",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "name": "[parameters('serverfarms_ServicePlanf79c4f07_8077_name')]",
@@ -324,7 +324,7 @@
             "kind": "app",
             "name": "[parameters('sites_chronasWebApp_name')]",
             "apiVersion": "2015-08-01",
-            "location": "South Central US",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "name": "[parameters('sites_chronasWebApp_name')]",
@@ -359,7 +359,7 @@
             "type": "Microsoft.Web/sites/config",
             "name": "[parameters('config_web_name')]",
             "apiVersion": "2015-08-01",
-            "location": "South Central US",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "numberOfWorkers": 1,
