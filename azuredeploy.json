@@ -18,7 +18,7 @@
             "type": "string"
         },
         "networkInterfaces_chronasmongodb40_name": {
-            "defaultValue": "chronasmongodb40",
+            "defaultValue": "[concat('chronasmongodb', uniqueString(resourceGroup().id))]",
             "type": "string"
         },
         "networkSecurityGroups_chronasmongodb_nsg_name": {
