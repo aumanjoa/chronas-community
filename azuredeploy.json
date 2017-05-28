@@ -46,7 +46,6 @@
             "type": "string"
         },
         "sites_chronasWebApp_name": {
-            "defaultValue": "",
             "type": "string"
         },
         "config_web_name": {
@@ -207,7 +206,7 @@
                     {
                         "name": "MongoDB",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "27017",
                             "sourceAddressPrefix": "*",
@@ -220,7 +219,7 @@
                     {
                         "name": "default-allow-ssh",
                         "properties": {
-                            "protocol": "TCP",
+                            "protocol": "Tcp",
                             "sourcePortRange": "*",
                             "destinationPortRange": "22",
                             "sourceAddressPrefix": "*",
