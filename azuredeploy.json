@@ -340,13 +340,13 @@
                 ],
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_chronasWebApp_name'),[concat(parameters('chronasHostName'),'.azurewebsites.net')])]",
+                        "name": "[concat(parameters('sites_chronasWebApp_name'),concat(parameters('chronasHostName'),'.azurewebsites.net'))]",
                         "sslState": 0,
                         "thumbprint": null,
                         "ipBasedSslState": 0
                     },
                     {
-                        "name": "[concat(parameters('sites_chronasWebApp_name'),[concat(parameters('chronasHostName'),'.scm.azurewebsites.net')])]",
+                        "name": "[concat(parameters('sites_chronasWebApp_name'),concat(parameters('chronasHostName'),'.scm.azurewebsites.net'))]",
                         "sslState": 0,
                         "thumbprint": null,
                         "ipBasedSslState": 0
