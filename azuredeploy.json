@@ -33,30 +33,24 @@
             "defaultValue": "chronasNewCosmos-vnet",
             "type": "string"
         },
-        "storageAccounts_chronasnewcosmosdiag533_name": {
-            "defaultValue": "chronasnewcosmosdiag533",
-            "type": "string"
-        },
-        "storageAccounts_chronasnewcosmosdisks219_name": {
-            "defaultValue": "chronasnewcosmosdisks219",
-            "type": "string"
-        },
         "serverfarms_ServicePlanf79c4f07_8077_name": {
             "defaultValue": "ServicePlanf79c4f07-8077",
             "type": "string"
         },
         "sites_chronasWebApp_name": {
             "type": "string"
-        },
-        "chronasHostName": {
-            "type": "string"
-        },        
+        },     
         "config_web_name": {
             "defaultValue": "chronasWebApp/web",
             "type": "string"
         }
     },
-    "variables": {},
+    "variables": {
+        "chronasnewcosmosdiagStorageName": "[concat(uniqueString(resourceGroup().id),'storage')]",
+        "chronasnewcosmosdisksStorageName": "[concat(uniqueString(resourceGroup().id),'storage')]",
+        "chronasHostName": "[concat('chronas-', uniqueString(resourceGroup().id))]"
+     
+    },
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines",
@@ -85,7 +79,7 @@
                         "name": "[parameters('virtualMachines_chronasmongodb_name')]",
                         "createOption": "FromImage",
                         "vhd": {
-                            "uri": "[concat('https', '://', parameters('storageAccounts_chronasnewcosmosdisks219_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_chronasmongodb_name'),'20170527072018.vhd'))]"
+                            "uri": "[concat('https', '://', variables('chronasnewcosmosdisksStorageName'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_chronasmongodb_name'),'20170527072018.vhd'))]"
                         },
                         "caching": "ReadWrite"
                     },
@@ -110,14 +104,14 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', parameters('storageAccounts_chronasnewcosmosdiag533_name'), '.blob.core.windows.net', '/')]"
+                        "storageUri": "[concat('https', '://', variables('chronasnewcosmosdiagStorageName'), '.blob.core.windows.net', '/')]"
                     }
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_chronasnewcosmosdisks219_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('chronasnewcosmosdisksStorageName'))]",
                 "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_chronasmongodb40_name'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_chronasnewcosmosdiag533_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('chronasnewcosmosdiagStorageName'))]"
             ]
         },
         {
@@ -279,7 +273,7 @@
                 "tier": "Standard"
             },
             "kind": "Storage",
-            "name": "[parameters('storageAccounts_chronasnewcosmosdiag533_name')]",
+            "name": "[variables('chronasnewcosmosdiagStorageName')]",
             "apiVersion": "2016-01-01",
             "location": "[resourceGroup().location]",
             "tags": {},
@@ -294,7 +288,7 @@
                 "tier": "Premium"
             },
             "kind": "Storage",
-            "name": "[parameters('storageAccounts_chronasnewcosmosdisks219_name')]",
+            "name": "[variables('chronasnewcosmosdisksStorageName')]",
             "apiVersion": "2016-01-01",
             "location": "[resourceGroup().location]",
             "tags": {},
@@ -332,21 +326,21 @@
             "properties": {
                 "name": "[parameters('sites_chronasWebApp_name')]",
                 "hostNames": [
-                    "[concat(parameters('chronasHostName'),'.azurewebsites.net')]"
+                    "[concat(variables('chronasHostName'),'.azurewebsites.net')]"
                 ],
                 "enabledHostNames": [
-                     "[concat(parameters('chronasHostName'),'.azurewebsites.net')]",
-                     "[concat(parameters('chronasHostName'),'.scm.azurewebsites.net')]"
+                     "[concat(variables('chronasHostName'),'.azurewebsites.net')]",
+                     "[concat(variables('chronasHostName'),'.scm.azurewebsites.net')]"
                 ],
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_chronasWebApp_name'),concat(parameters('chronasHostName'),'.azurewebsites.net'))]",
+                        "name": "[concat(parameters('sites_chronasWebApp_name'),concat(variables('chronasHostName'),'.azurewebsites.net'))]",
                         "sslState": 0,
                         "thumbprint": null,
                         "ipBasedSslState": 0
                     },
                     {
-                        "name": "[concat(parameters('sites_chronasWebApp_name'),concat(parameters('chronasHostName'),'.scm.azurewebsites.net'))]",
+                        "name": "[concat(parameters('sites_chronasWebApp_name'),concat(variables('chronasHostName'),'.scm.azurewebsites.net'))]",
                         "sslState": 0,
                         "thumbprint": null,
                         "ipBasedSslState": 0
