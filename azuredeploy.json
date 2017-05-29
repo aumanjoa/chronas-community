@@ -47,7 +47,7 @@
     },
     "variables": {
         "chronasnewcosmosdiagStorageName": "[concat(uniqueString(resourceGroup().id),'storage')]",
-        "chronasnewcosmosdisksStorageName": "[concat(uniqueString(resourceGroup().id),'storage')]",
+        "chronasnewcosmosdisksStorageName": "[concat(uniqueString(resourceGroup().id),'diskstorage')]",
         "chronasHostName": "[concat('chronas-', uniqueString(resourceGroup().id))]"
      
     },
